@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const root = ReactDOM.createRoot(document.querySelector('#root'));
+        // 연습1) 아래 변수에 저장된 값을 <div> 태그로 화면에 표시하세요.
+        const name = 'Tom';
+        const nameDiv = React.createElement(
+            'div',
+            { className: 'name' },
+            name
+        );
+        // root.render(nameDiv);
+        // 연습2) 아래 객체에 저장된 값 중 model 속성만 <div> 태그로 화면에 표시하세요.
+        const car = {
+            model: 'sorento',
+            price: 4000,
+        }
+        const carDiv = React.createElement(
+            'div',
+            { className: car },
+            car.model
+        )
+        // root.render(carDiv)
+        // 연습3) 아래 score 값이 60 이상이면 "합격", 아니면 "불합격"을 <div> 태그로 화면에 표시하세요.
+        const score = 80;
+        const scoreDiv = React.createElement(
+            'div',
+            { className: 'score' },
+            score >= 60 ? '합격' : '불합격'
+        )
+        // root.render(scoreDiv);
+        // 연습4) 아래 변수에 저장된 값이 없으면 "값없음", 값이 있으면 저장된 값을 <div> 태그로 화면에 표시하세요. [value ?? '값없음']
+        let value;
+        const valueDiv = React.createElement(
+            'div',
+            { className: 'value' },
+            (value === null || value === undefined) ? "값없음" : value
+        )
+        // root.render(valueDiv);
+        // 연습5) 아래 color 값이 "r"이면 "red", "g"이면 "green", "b"이면 "blue" 배경색을 <div> 태그에 적용해 화면에 표시하세요.
+        //       (100 x 100 크기)
+        const color = 'g';
+        const redStyle = {
+            width: 100,
+            height: 100,
+            backgroundColor: '#ff0000'
+        };
+
+        const greenStyle = {
+            width: 100,
+            height: 100,
+            backgroundColor: '#00ff00'
+        }
+        const blueStyle = {
+            width: 100,
+            height: 100,
+            backgroundColor: '#0000ff'
+        }
+        const nullStyle = {
+            width: 100,
+            height: 100,
+            backgroundColor: '#ffffff'
+        }
+        const c = color === 'r' ? redStyle :
+            color === 'g' ? greenStyle :
+                color === 'b' ? blueStyle : nullStyle;
+        const styleAll = {
+            width: 100,
+            height: 100
+        }
+        const colorDiv =
+            <>
+                <div style={c}>{color}</div>
+            </>
+        // root.render(colorDiv);
+
+        const all =
+            <>
+                {nameDiv}
+                <br />
+                {carDiv}
+                <br />
+                {scoreDiv}
+                <br />
+                {valueDiv}
+                <br />
+                {colorDiv}
+            </>;
+        root.render(all);
+    </script>
+</body>
+
+</html>
