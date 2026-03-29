@@ -16,7 +16,6 @@ function solution(babbling) {
             temp = temp.split(able[i]).join(' ');
         }
 
-        // 공백 제거했을 때 아무것도 없으면 성공
         if (temp.trim() === '') answer++;
     });
 
