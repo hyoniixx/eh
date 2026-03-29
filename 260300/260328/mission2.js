@@ -6,18 +6,23 @@
 // https://school.programmers.co.kr/learn/courses/30/lessons/120956?language=javascript
 
 function solution(babbling) {
-    var answer = 0;
-    var able = ['aya', 'ye', 'woo', 'ma'];
-    for (let i = 0; i < able.length; i++) {
-        babbling.map((el) => {
-            if (el === able[i]) answer++; else answer = answer;
-        })
-    }
+    let answer = 0;
+    const able = ['aya', 'ye', 'woo', 'ma'];
+
+    babbling.forEach(word => {
+        let temp = word;
+
+        for (let i = 0; i < able.length; i++) {
+            temp = temp.split(able[i]).join(' ');
+        }
+
+        // 공백 제거했을 때 아무것도 없으면 성공
+        if (temp.trim() === '') answer++;
+    });
+
     return answer;
 }
 
 const b = ["aya", "yee", "u", "maa", "wyeoo"];
 const c = ["aya", "ye", "u", "ma", "wyeoo"];
-console.log(solution(c));
-
-//틀려서 다시 풀 예정 (오늘은 시간이 없다,,)
+console.log(solution(b));
