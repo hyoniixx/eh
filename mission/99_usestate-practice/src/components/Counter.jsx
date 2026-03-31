@@ -10,7 +10,7 @@ function Counter() {
         setNumber(number + 1)
     }
     const init = () => {
-        setNumber(number - number);
+        setNumber(0);
     }
     return (
         <>
