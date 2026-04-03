@@ -19,7 +19,7 @@ function ToDoList() {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
             />
-            <button>추fasdasd가</button>
+            <button>추가</button>
             {list.map((el, index) => {
                 return (<div key={index}>
                     <input

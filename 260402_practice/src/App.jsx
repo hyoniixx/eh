@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <ToDoList />
+      {/* <ToDoList /> */}
       <hr />
       <Cal />
       <hr />
